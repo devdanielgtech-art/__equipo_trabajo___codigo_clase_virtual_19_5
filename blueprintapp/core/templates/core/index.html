@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>TRABAJO DE DANIEL QUISPE GUTIERREZ RU: 200080152</h1>
+<div class="d-flex gap-2 mt-3">
+    <a href="{{ url_for('bp_miembro.index') }}" class="btn btn-primary">Miembros</a>
+    <a href="{{ url_for('bp_tarea.index') }}" class="btn btn-success">Tareas</a>
+</div>
+{% endblock%}

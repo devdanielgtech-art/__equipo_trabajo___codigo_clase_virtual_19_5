@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Crear Tarea{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h1 class="h3">Crear Nueva Tarea</h1>
+    </div>
+    <div class="card-body">
+        <form action="{{ url_for('bp_tarea.create') }}" method="POST">
+            <div class="mb-3">
+                <label for="descripcion" class="form-label">Descripción:</label>
+                <input type="text" class="form-control" name="descripcion" placeholder="Descripción" required>
+            </div>
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" name="completado" id="completado">
+                <label class="form-check-label" for="completado">Completado</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a href="{{ url_for('bp_tarea.index') }}" class="btn btn-secondary">Cancelar</a>
+        </form>
+    </div>
+</div>
+{% endblock %}

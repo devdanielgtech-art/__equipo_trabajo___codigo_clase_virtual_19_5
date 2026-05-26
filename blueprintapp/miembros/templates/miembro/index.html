@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Listado de Miembros{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h1 class="h3">Listado de Miembros</h1>
+        <a href="{{ url_for('bp_miembro.create') }}" class="btn btn-success">Nuevo Miembro</a>
+    </div>
+    <div class="card-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in miembros %}
+                <tr>
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.nombre }}</td>
+                    <td>{{ item.email }}</td>
+                    <td>
+                        <a href="{{ url_for('bp_miembro.edit', id=item.id) }}" class="btn btn-warning btn-sm">Editar</a>
+                        <a href="{{ url_for('bp_miembro.delete', id=item.id) }}" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de eliminar?')">Eliminar</a>
+                    </td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="4">No hay miembros registrados</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

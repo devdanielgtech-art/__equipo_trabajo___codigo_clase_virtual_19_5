@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Editar Miembro{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h1 class="h3">Editar Miembro</h1>
+    </div>
+    <div class="card-body">
+        <form action="{{ url_for('bp_miembro.edit', id=miembro.id) }}" method="POST">
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre:</label>
+                <input type="text" class="form-control" name="nombre" value="{{ miembro.nombre }}" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Correo:</label>
+                <input type="email" class="form-control" name="email" value="{{ miembro.email }}" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Actualizar</button>
+            <a href="{{ url_for('bp_miembro.index') }}" class="btn btn-secondary">Cancelar</a>
+        </form>
+    </div>
+</div>
+{% endblock %}
