@@ -20,7 +20,8 @@ def create():
     elif request.method == 'POST':
         nombre = request.form.get('nombre')
         email = request.form.get('email')
-        miembro = Miembro(nombre=nombre, email=email)
+        telefono = request.form.get('telefono')  # NUEVO
+        miembro = Miembro(nombre=nombre, email=email, telefono=telefono)  # AGREGAR telefono
         db.session.add(miembro)
         db.session.commit()
         return redirect(url_for('bp_miembro.index'))
@@ -33,6 +34,7 @@ def edit(id):
     if request.method == 'POST':
         miembro.nombre = request.form.get('nombre')
         miembro.email = request.form.get('email')
+        miembro.telefono = request.form.get('telefono')  # NUEVO
         db.session.commit()
         return redirect(url_for('bp_miembro.index'))
     

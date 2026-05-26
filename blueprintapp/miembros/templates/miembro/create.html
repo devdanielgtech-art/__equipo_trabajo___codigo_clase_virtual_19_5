@@ -17,6 +17,10 @@
                 <label for="email" class="form-label">Correo:</label>
                 <input type="email" class="form-control" name="email" placeholder="Correo" required>
             </div>
+            <div class="mb-3">
+                <label for="telefono" class="form-label">Teléfono:</label>
+                <input type="text" class="form-control" name="telefono" placeholder="Teléfono">
+            </div>
             <button type="submit" class="btn btn-primary">Guardar</button>
             <a href="{{ url_for('bp_miembro.index') }}" class="btn btn-secondary">Cancelar</a>
         </form>

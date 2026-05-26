@@ -6,6 +6,7 @@ class Miembro(db.Model):
     id = db.Column(db.Integer,primary_key=True)
     nombre = db.Column(db.String,nullable=False)
     email = db.Column(db.String,nullable=False)
+    telefono = db.Column(db.String)
    
     
     def __repr__(self):
